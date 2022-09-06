@@ -35,27 +35,26 @@ public static class MauiProgram
             });
 
         builder.Services.AddMauiBlazorWebView();
-        
+
 #if WINDOWS
-            builder.ConfigureLifecycleEvents(events =>
+        builder.ConfigureLifecycleEvents(events =>
+        {
+            events.AddWindows(wndLifeCycleBuilder =>
             {
-                events.AddWindows(wndLifeCycleBuilder =>
+                wndLifeCycleBuilder.OnWindowCreated(window =>
                 {
-                    wndLifeCycleBuilder.OnWindowCreated(window =>
-                    {
-                        IntPtr nativeWindowHandle = WinRT.Interop.WindowNative.GetWindowHandle(window);
-                        WindowId win32WindowsId = Win32Interop.GetWindowIdFromWindow(nativeWindowHandle);
-                        AppWindow winuiAppWindow = AppWindow.GetFromWindowId(win32WindowsId);
+                    IntPtr nativeWindowHandle = WinRT.Interop.WindowNative.GetWindowHandle(window);
+                    WindowId win32WindowsId = Win32Interop.GetWindowIdFromWindow(nativeWindowHandle);
+                    AppWindow winuiAppWindow = AppWindow.GetFromWindowId(win32WindowsId);
 
-                        const int width = 1200;
-                        const int height = 800;
-                        int x = 1920 / 2 - width / 2; //Convert.ToInt32(DeviceDisplay.MainDisplayInfo.Width)
-                        int y = 1080 / 2 - height / 2; //Convert.ToInt32(DeviceDisplay.MainDisplayInfo.Height)
+                    const int x = 10;
+                    const int y = 10;
+                    int width = (int)(winuiAppWindow.ClientSize.Width / 1.3);
 
-                        winuiAppWindow.MoveAndResize(new RectInt32(x, y, width, height));
-                    });
+                    winuiAppWindow.MoveAndResize(new RectInt32(x, y, width, winuiAppWindow.ClientSize.Height));
                 });
             });
+        });
 #endif
 
         ModifyEntry();
