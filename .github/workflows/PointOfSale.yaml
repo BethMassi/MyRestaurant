@@ -102,7 +102,7 @@ jobs:
 
           # https://docs.microsoft.com/en-us/dotnet/maui/android/deployment/overview
         - name : Build Android App
-          shell: bash
+          #shell: bash
           run: |
             cd .\src\MAUI-PointOfSale\
             dotnet publish -f:net6.0-android -c:Release
@@ -121,11 +121,11 @@ jobs:
         #   shell: bash
         #   run: jarsigner -keystore android/release.decrypted.jks -storepass "${{ secrets.RELEASE_KEYSTORE_PASSWORD }}" -signedjar ./android/app/build/outputs/bundle/release/app-release-signed.aab ./android/app/build/outputs/bundle/release/app-release.aab release
 
-  #       - name: Build and Run UnitTests
-  #         shell: bash
-  #         run: |
-  #           dotnet build <path to unit test csproj>
-  #           dotnet test <path to unit test csproj> --no-build --verbosity normal
+        #- name: Build and Run UnitTests
+        #  shell: bash
+        #  run: |
+        #  dotnet build <path to unit test csproj>
+        #  dotnet test <path to unit test csproj> --no-build --verbosity normal
 
         - uses: actions/upload-artifact@v2
           with:
