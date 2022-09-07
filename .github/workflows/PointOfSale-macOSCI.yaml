@@ -9,13 +9,13 @@ on:
   workflow_dispatch:
 
 env:
-    DOTNETVERSION: 6.0.300
+    DOTNETVERSION: 6.0.400
     
 jobs:
   buildMacCatalyst:
     runs-on: macos-12
     
-    steps:
+    steps:      
       - uses: actions/checkout@v2
 
       - name: Setup .NET SDK ${{env.DOTNETVERSION}}
