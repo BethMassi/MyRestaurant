@@ -16,7 +16,8 @@ jobs:
     runs-on: macos-12
     
     steps:      
-      - uses: actions/checkout@v2
+      - name: Run Checkout
+        uses: actions/checkout@v2
 
       - name: Setup .NET SDK ${{env.DOTNETVERSION}}
         uses: actions/setup-dotnet@v1
