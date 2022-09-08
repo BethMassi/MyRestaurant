@@ -54,7 +54,7 @@ jobs:
         with:
             name: artifacts-mac
             path: |
-              src/MAUI-PointOfSale/PointOfSale/artifacts/*.pkg
+              src/MAUI-PointOfSale/artifacts/*.pkg              
       
   buildiOS:
       runs-on: macos-12
