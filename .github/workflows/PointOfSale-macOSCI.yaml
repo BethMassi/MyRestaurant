@@ -108,7 +108,7 @@ jobs:
 
           # https://docs.microsoft.com/en-us/dotnet/maui/ios/deployment/overview
         - name : Build iOS App
-          shell: bash
+          # shell: bash
           run: |
             cd /src/MAUI-PointOfSale/
             dotnet publish -f net6.0-iOS -c Release /p:packageApp=false /p:buildForSimulator=true /p:ArchiveOnBuild=false
