@@ -54,7 +54,7 @@ jobs:
         with:
             name: artifacts-mac
             path: |
-              src/MAUI-PointOfSale/PointOfSale/artifacts/**/*.pkg
+              src/MAUI-PointOfSale/artifacts/*.pkg              
       
   buildiOS:
       runs-on: macos-12
@@ -110,8 +110,8 @@ jobs:
         - name : Build iOS App
           shell: bash
           run: |
-            cd /src/MAUI-PointOfSale/
-            dotnet publish -f net6.0-iOS -c Release /p:packageApp=false /p:buildForSimulator=true /p:ArchiveOnBuild=false
+            cd src/MAUI-PointOfSale/
+            dotnet publish -f net6.0-ios -r ios-arm64 --self-contained -c Release /p:packageApp=false /p:buildForSimulator=true /p:ArchiveOnBuild=false
        
        #- name: Build and Run UnitTests
         #  shell: bash
