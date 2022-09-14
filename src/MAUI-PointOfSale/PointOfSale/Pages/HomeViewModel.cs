@@ -10,9 +10,9 @@ public partial class HomeViewModel
     [ObservableProperty]
     string category = ItemCategory.Noodles.ToString();
 
-    partial void OnCategoryChanged(string cat)
+    partial void OnCategoryChanged(string value)
     {
-       ItemCategory category = (ItemCategory)Enum.Parse(typeof(ItemCategory), cat);
+       ItemCategory category = (ItemCategory)Enum.Parse(typeof(ItemCategory), value);
        _products = new ObservableCollection<Item>(
            AppData.Items.Where(x => x.Category == category).ToList()
        );

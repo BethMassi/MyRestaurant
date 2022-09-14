@@ -14,7 +14,7 @@
 			BarcodesDetected="BarcodesDetected"
 			 />
 
-		<Border WidthRequest="240" HeightRequest="240"
+		<!--<Border WidthRequest="240" HeightRequest="240"
 		  VerticalOptions="Center" HorizontalOptions="Center"
 		  Stroke="White"
 		  StrokeThickness="3">
@@ -22,7 +22,7 @@
 				<RoundRectangle CornerRadius="12"/>
 			</Border.StrokeShape>
 
-		</Border>
+		</Border>-->
 
 		<ImageButton
 			Margin="20,20,0,0"

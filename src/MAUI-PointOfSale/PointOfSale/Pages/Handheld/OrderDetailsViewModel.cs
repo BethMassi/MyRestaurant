@@ -33,4 +33,11 @@ public partial class OrderDetailsViewModel
     {
         await Shell.Current.GoToAsync($"{nameof(ScanPage)}");
     }
+
+    [RelayCommand]
+    async Task Menu()
+    {
+        await Shell.Current.GoToAsync($"{nameof(MenuPage)}");
+    }
+
 }

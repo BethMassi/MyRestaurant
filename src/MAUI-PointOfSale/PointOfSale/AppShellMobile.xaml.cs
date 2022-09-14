@@ -19,5 +19,6 @@ public partial class AppShellMobile : Shell
 		Routing.RegisterRoute(nameof(SignaturePage), typeof(SignaturePage));
 		Routing.RegisterRoute(nameof(ReceiptPage), typeof(ReceiptPage));
         Routing.RegisterRoute(nameof(ScanPage), typeof(ScanPage));
+        Routing.RegisterRoute(nameof(MenuPage), typeof(MenuPage));
     }
 }
