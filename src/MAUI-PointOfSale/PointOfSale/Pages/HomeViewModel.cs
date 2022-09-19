@@ -23,13 +23,13 @@ public partial class HomeViewModel
     {
         _products = new ObservableCollection<Item>(
             AppData.Items.Where(x=>x.Category == ItemCategory.Noodles).ToList()
-        );
+        );       
     }
 
     [RelayCommand]
     async Task Preferences()
     {
-        await Shell.Current.GoToAsync($"{nameof(SettingsPage)}?sub=appearance");
+        await Shell.Current.GoToAsync($"//settings?sub=appearance");
     }
 
     [RelayCommand]
@@ -41,7 +41,7 @@ public partial class HomeViewModel
     [RelayCommand]
     void ViewMenu()
     {
-        var menuWindow = new Window { Page = new Handheld.MenuPage { } };
-        Application.Current.OpenWindow(menuWindow);
+            var menuWindow = new Window { Page = new Handheld.MenuPage { } };
+            Application.Current.OpenWindow(menuWindow);        
     }
 }
