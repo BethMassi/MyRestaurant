@@ -37,4 +37,11 @@ public partial class HomeViewModel
     {
         MessagingCenter.Send<HomeViewModel, string>(this, "action", "add");
     }
+
+    [RelayCommand]
+    void ViewMenu()
+    {
+        var menuWindow = new Window { Page = new Handheld.MenuPage { } };
+        Application.Current.OpenWindow(menuWindow);
+    }
 }
