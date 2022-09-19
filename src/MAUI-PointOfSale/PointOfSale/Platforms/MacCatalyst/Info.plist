@@ -28,7 +28,6 @@
 	<string>Assets.xcassets/appicon.appiconset</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Barcode Scanning</string>
-</dict>
 <key>UIApplicationSceneManifest</key>
 <dict>
   <key>UIApplicationSupportsMultipleScenes</key>
@@ -45,5 +44,6 @@
       </dict>
     </array>
   </dict>
+</dict>
 </dict>
 </plist>
