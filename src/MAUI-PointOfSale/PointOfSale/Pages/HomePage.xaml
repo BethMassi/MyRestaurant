@@ -27,6 +27,11 @@
                             ParentChanged="MenuFlyoutItem_ParentChanged"/>
             <MenuFlyoutItem Text="Add Product Category"/>
         </MenuBarItem>
+        <MenuBarItem Text="Menu">
+            <MenuFlyoutItem Text="View Menu" Command="{Binding ViewMenuCommand}"
+                            ParentChanged="MenuFlyoutItem_ParentChanged"/>
+            <MenuFlyoutItem Text="Update Menu"/>
+        </MenuBarItem>
     </ContentPage.MenuBarItems>
 
 
