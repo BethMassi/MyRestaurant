@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Foundation;
+using Microsoft.Maui;
+using UIKit;
 
-namespace PointOfSale.Platforms.MacCatalyst
+namespace PointOfSale;
+
+[Register("SceneDelegate")]
+public class SceneDelegate : MauiUISceneDelegate
 {
-    class SceneDelegate
-    {
-    }
 }
