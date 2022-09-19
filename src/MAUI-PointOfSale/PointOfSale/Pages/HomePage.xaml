@@ -9,8 +9,8 @@
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
              x:DataType="pages:HomeViewModel"
              x:Class="PointOfSale.Pages.HomePage"
-             Shell.NavBarIsVisible="False"
-             Title="HomePage">
+             Shell.NavBarIsVisible="True"
+             Title="">
 
     <ContentPage.BindingContext>
         <pages:HomeViewModel/>
@@ -39,7 +39,20 @@
 
         <ScrollView Grid.Row="2">
             <Grid RowDefinitions="70,*">
-                <Label Text="Choose Dishes" Style="{StaticResource Title1}"/>
+                <Label Text="Choose Dishes" Style="{StaticResource Title1}">
+                    <!-- New context menus for desktop apps with .NET 7 -->
+                    <FlyoutBase.ContextFlyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem Text="Option 1" ></MenuFlyoutItem>
+                            <MenuFlyoutItem Text="Option 2" ></MenuFlyoutItem>
+                            <MenuFlyoutSubItem Text="More options">
+                                <MenuFlyoutItem Text="Option 3" ></MenuFlyoutItem>
+                                <MenuFlyoutItem Text="Option 4" ></MenuFlyoutItem>
+                                <MenuFlyoutItem Text="Option 5" ></MenuFlyoutItem>
+                            </MenuFlyoutSubItem>
+                        </MenuFlyout>
+                    </FlyoutBase.ContextFlyout>                    
+                </Label>
 
                 <l:HorizontalWrapLayout Grid.Row="1" Spacing="20"
                                        BindableLayout.ItemsSource="{Binding Products}"
