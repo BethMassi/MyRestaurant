@@ -3,6 +3,7 @@ using Microsoft.Maui.LifecycleEvents;
 using Microsoft.Maui.Platform;
 using SkiaSharp.Views.Maui.Controls.Hosting;
 using ZXing.Net.Maui;
+using Microsoft.AspNetCore.Components.WebView.Maui;
 
 #if WINDOWS
 using Microsoft.UI;
@@ -35,6 +36,9 @@ public static class MauiProgram
             });
 
         builder.Services.AddMauiBlazorWebView();
+#if DEBUG
+        builder.Services.AddBlazorWebViewDeveloperTools();
+#endif
 
 #if WINDOWS
         builder.ConfigureLifecycleEvents(events =>
