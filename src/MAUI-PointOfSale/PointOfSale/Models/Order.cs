@@ -22,7 +22,7 @@ public partial class Order
     {
         get
         {
-            var tot = items.Sum(i => (i.Price * i.Quantity));
+            var tot = items.Sum(i => (i.SubTotal));
             if (tip != 0)
                 tot = tot + (tot * tip);
             return tot.ToString("N2");
