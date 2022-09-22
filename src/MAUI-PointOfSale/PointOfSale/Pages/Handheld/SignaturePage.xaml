@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:handheld="clr-namespace:PointOfSale.Pages.Handheld"
              xmlns:local="clr-namespace:PointOfSale"
+             xmlns:Blazor="clr-namespace:PointOfSale.Shared"
              x:Class="PointOfSale.Pages.Handheld.SignaturePage"
              Shell.NavBarIsVisible="False"
              x:DataType="handheld:SignatureViewModel">
@@ -22,7 +23,7 @@
         <!--<BoxView Grid.Row="1" Color="{StaticResource DarkBg2}" HorizontalOptions="Fill" VerticalOptions="Fill"/>-->
         <BlazorWebView HostPage="wwwroot/index.html" Grid.Row="1">
             <BlazorWebView.RootComponents>
-                <RootComponent Selector="#app" ComponentType="{x:Type local:Main}" x:Name="BlazorComponent" />
+                <RootComponent Selector="#app" ComponentType="{x:Type Blazor:Component}" x:Name="BlazorComponent" />
             </BlazorWebView.RootComponents>
         </BlazorWebView>
         
