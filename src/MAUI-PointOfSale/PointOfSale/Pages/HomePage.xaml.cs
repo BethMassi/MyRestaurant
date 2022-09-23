@@ -16,10 +16,6 @@ public partial class HomePage : ContentPage
         {
              NavSubContent((arg == "true") ? true : false);
         });
-        //		WeakReferenceMessenger.Default.Register<AddProductMessage>(this, (r, m) =>
-        //		{
-        //            NavSubContent(m.Value);
-        //		});
     }
 
     void MenuFlyoutItem_ParentChanged(System.Object sender, System.EventArgs e)

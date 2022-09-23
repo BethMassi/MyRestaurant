@@ -37,7 +37,7 @@ public partial class HomeViewModel
     [RelayCommand]
     async Task AddProduct()
     {
-        //MessagingCenter.Send<HomeViewModel, string>(this, "action", "add");
+    
         MessagingCenter.Send<AddProductMessage, string>(new AddProductMessage(true), "action", "true");
     }
 
