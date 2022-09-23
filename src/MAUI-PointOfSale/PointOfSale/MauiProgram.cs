@@ -59,6 +59,18 @@ public static class MauiProgram
                 });
             });
         });
+
+        ////.NET 7 adds support for Window size properties & events
+        //// get screen size
+        //var disp = DeviceDisplay.Current.MainDisplayInfo;
+
+        //// center the window
+        //Window.X = (disp.Width / disp.Density - newWidth) / 2;
+        //Window.Y = (disp.Height / disp.Density - newHeight) / 2;
+
+        //// resize
+        //Window.Width = newWidth;
+        //Window.Height = newHeight;
 #endif
 
         ModifyEntry();
