@@ -44,7 +44,20 @@
 
         <ScrollView Grid.Row="2">
             <Grid RowDefinitions="70,*">
-                <Label Text="Choose Dishes" Style="{StaticResource Title1}"/>
+                <Label Text="Choose Dishes" Style="{StaticResource Title1}">
+                    <!-- New context menus for desktop apps with .NET 7
+                    <FlyoutBase.ContextFlyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem Text="Option 1" ></MenuFlyoutItem>
+                            <MenuFlyoutItem Text="Option 2" ></MenuFlyoutItem>
+                            <MenuFlyoutSubItem Text="More options">
+                                <MenuFlyoutItem Text="Option 3" ></MenuFlyoutItem>
+                                <MenuFlyoutItem Text="Option 4" ></MenuFlyoutItem>
+                                <MenuFlyoutItem Text="Option 5" ></MenuFlyoutItem>
+                            </MenuFlyoutSubItem>
+                        </MenuFlyout>
+                    </FlyoutBase.ContextFlyout>  -->
+                </Label>
 
                 <l:HorizontalWrapLayout Grid.Row="1" Spacing="20"
                                        BindableLayout.ItemsSource="{Binding Products}"
@@ -112,7 +125,11 @@
                        TextColor="White"
                        VerticalOptions="Center"
                        WidthRequest="250"
-                       FontSize="14"/>
+                       FontSize="14">
+                    <!-- New Tooltips in .NET 7
+                    <ToolTipProperties.Text>This is where you search for food, coffee, anything!</ToolTipProperties.Text>
+                     -->
+                </Entry>
             </HorizontalStackLayout>
             
 
