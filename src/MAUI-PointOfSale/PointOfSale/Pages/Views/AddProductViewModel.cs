@@ -1,4 +1,5 @@
 ﻿using System;
+using PointOfSale.Messages;
 namespace PointOfSale.Pages;
 
 [INotifyPropertyChanged]
@@ -23,7 +24,8 @@ public partial class AddProductViewModel
         item.Category = cat;
         AppData.Items.Add(item);
 
-        MessagingCenter.Send<AddProductViewModel, string>(this, "action", "done");
+        //MessagingCenter.Send<AddProductViewModel, string>(this, "action", "done");
+        MessagingCenter.Send<AddProductMessage, string>(new AddProductMessage(false), "action", "false");
     }
 
     [RelayCommand]
