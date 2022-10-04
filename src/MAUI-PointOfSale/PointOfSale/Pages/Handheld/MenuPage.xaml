@@ -7,7 +7,7 @@
              Shell.NavBarIsVisible="True"
              Title="Menu">
 
-    <VerticalStackLayout>
+    <!--<VerticalStackLayout>
         <Label 
         Text="Today's Menu"
         Padding="20"
@@ -27,14 +27,14 @@
                     WidthRequest="250"
                     FontSize="14"/>
             </HorizontalStackLayout>
-        </Border>
+        </Border>-->
 
-        <BlazorWebView HostPage="wwwroot/index.html" Grid.Row="1">
+        <BlazorWebView HostPage="wwwroot/index.html" >
             <BlazorWebView.RootComponents>
                 <RootComponent Selector="#app" ComponentType="{x:Type Blazor:MainLayout}" x:Name="BlazorComponent" />
             </BlazorWebView.RootComponents>
         </BlazorWebView>
 
-    </VerticalStackLayout>
+    <!--</VerticalStackLayout>-->
 
 </ContentPage>
