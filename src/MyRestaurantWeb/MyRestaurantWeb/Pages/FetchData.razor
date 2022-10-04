@@ -1,0 +1,74 @@
+﻿@page "/fetchdata"
+@inject HttpClient Http
+
+<PageTitle>Today's Specials</PageTitle>
+
+<h1>Today's Specials</h1>
+
+<p>Here are your specials for @DateTime.Today.ToShortDateString()</p>
+
+@if (items == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var item in items)
+        {
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src='@("https://myrestaurantweb.blob.core.windows.net/menu/" + @item.Image)' class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">@item.Price</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+
+}
+
+@code {
+    private Item[]? items;
+
+    protected override async Task OnInitializedAsync()
+    {
+        items = await Http.GetFromJsonAsync<Item[]>("https://localhost:7168/api/item");
+    }
+
+    public class Item
+    {
+        public int Id { get; set; }
+
+        public string Title { get; set; }
+
+        public int Quantity { get; set; }
+
+        public string Image { get; set; }
+
+        public double Price { get; set; }
+
+        public ItemCategory Category { get; set; }
+
+        public double SubTotal
+        {
+            get
+            {
+                return Price * Quantity;
+            }
+        }
+    }
+
+    public enum ItemCategory
+    {
+        Noodles = 1,
+        Rice = 2,
+        Appetizers = 3,
+        Desserts = 4,
+        Beverages = 5
+    }
+}
