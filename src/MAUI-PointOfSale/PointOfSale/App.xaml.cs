@@ -15,6 +15,10 @@ public partial class App : Application
         else
         {
             MainPage = new AppShell();
+#if WINDOWS
+            MainPage.HeightRequest = 800;
+            MainPage.WidthRequest = 1200;
+#endif
         }
-	}
+    }
 }

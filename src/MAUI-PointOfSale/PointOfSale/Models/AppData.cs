@@ -43,7 +43,7 @@ public static class AppData
     private static List<Item> GenerateItems()
     {
         List<Item> items = new List<Item>(); 
-        int numItems = random.Next(1, Items.Count - 1);
+        int numItems = random.Next(2, 4);
         random.Shuffle(Items);
         for (int i = 0; i < numItems; i++)
         {

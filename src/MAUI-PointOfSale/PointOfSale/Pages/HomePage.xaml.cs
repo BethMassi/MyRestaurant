@@ -1,7 +1,4 @@
-
-
 using PointOfSale.Messages;
-
 namespace PointOfSale.Pages;
 
 public partial class HomePage : ContentPage
@@ -12,10 +9,10 @@ public partial class HomePage : ContentPage
 	{
 		InitializeComponent();
 
-		WeakReferenceMessenger.Default.Register<AddProductMessage>(this, (r, m) =>
-		{
-            NavSubContent(m.Value);
-		});
+        MessagingCenter.Subscribe<AddProductMessage, string>(this, "action", (sender, arg) =>
+        {
+            NavSubContent((arg == "true") ? true : false);
+        });
     }
 
     void MenuFlyoutItem_ParentChanged(System.Object sender, System.EventArgs e)

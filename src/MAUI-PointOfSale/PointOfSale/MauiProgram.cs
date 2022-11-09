@@ -36,27 +36,6 @@ public static class MauiProgram
 
         builder.Services.AddMauiBlazorWebView();
 
-#if WINDOWS
-        builder.ConfigureLifecycleEvents(events =>
-        {
-            events.AddWindows(wndLifeCycleBuilder =>
-            {
-                wndLifeCycleBuilder.OnWindowCreated(window =>
-                {
-                    IntPtr nativeWindowHandle = WinRT.Interop.WindowNative.GetWindowHandle(window);
-                    WindowId win32WindowsId = Win32Interop.GetWindowIdFromWindow(nativeWindowHandle);
-                    AppWindow winuiAppWindow = AppWindow.GetFromWindowId(win32WindowsId);
-
-                    const int x = 10;
-                    const int y = 10;
-                    int width = (int)(winuiAppWindow.ClientSize.Width / 1.3);
-
-                    winuiAppWindow.MoveAndResize(new RectInt32(x, y, width, winuiAppWindow.ClientSize.Height));
-                });
-            });
-        });
-#endif
-
         ModifyEntry();
 
         return builder.Build();
