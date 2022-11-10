@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 env:
-    DOTNETVERSION: 6.0.400
+    DOTNETVERSION: 7.0.100
     
 jobs:
   buildMacCatalyst:
@@ -28,8 +28,8 @@ jobs:
         shell: bash
         run: |
             dotnet nuget locals all --clear 
-            dotnet workload install maui --source https://aka.ms/dotnet6/nuget/index.json --source https://api.nuget.org/v3/index.json
-            dotnet workload install android ios maccatalyst tvos macos maui wasm-tools --source https://aka.ms/dotnet6/nuget/index.json --source https://api.nuget.org/v3/index.json
+            dotnet workload install maui --source https://api.nuget.org/v3/index.json
+            dotnet workload install android ios maccatalyst tvos macos maui wasm-tools --source https://api.nuget.org/v3/index.json
 
       - name: Restore nuget packages
         run: |
