@@ -40,39 +40,6 @@ public static class MauiProgram
         builder.Services.AddBlazorWebViewDeveloperTools();
 #endif
 
-#if WINDOWS
-        builder.ConfigureLifecycleEvents(events =>
-        {
-            events.AddWindows(wndLifeCycleBuilder =>
-            {
-                wndLifeCycleBuilder.OnWindowCreated(window =>
-                {
-                    IntPtr nativeWindowHandle = WinRT.Interop.WindowNative.GetWindowHandle(window);
-                    WindowId win32WindowsId = Win32Interop.GetWindowIdFromWindow(nativeWindowHandle);
-                    AppWindow winuiAppWindow = AppWindow.GetFromWindowId(win32WindowsId);
-
-                    const int x = 10;
-                    const int y = 10;
-                    int width = (int)(winuiAppWindow.ClientSize.Width / 1.3);
-
-                    winuiAppWindow.MoveAndResize(new RectInt32(x, y, width, winuiAppWindow.ClientSize.Height));
-                });
-            });
-        });
-
-        ////.NET 7 adds support for Window size properties & events
-        //// get screen size
-        //var disp = DeviceDisplay.Current.MainDisplayInfo;
-
-        //// center the window
-        //Window.X = (disp.Width / disp.Density - newWidth) / 2;
-        //Window.Y = (disp.Height / disp.Density - newHeight) / 2;
-
-        //// resize
-        //Window.Width = newWidth;
-        //Window.Height = newHeight;
-#endif
-
         ModifyEntry();
 
         return builder.Build();

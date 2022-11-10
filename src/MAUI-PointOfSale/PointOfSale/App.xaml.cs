@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using Microsoft.Maui.Devices;
+using System.Linq.Expressions;
 
 namespace PointOfSale;
 
@@ -9,7 +10,7 @@ public partial class App : Application
 		InitializeComponent();
 
         App.Current.UserAppTheme = AppTheme.Dark;
-            
+    
         if (DeviceInfo.Idiom == DeviceIdiom.Phone)
         {
             MainPage = new AppShellMobile();
@@ -18,8 +19,7 @@ public partial class App : Application
         {
             MainPage = new AppShell();
         }
-
-
+        
         AppActions.SetAsync(
            new AppAction("add_product", "Add Product"),
            new AppAction("view_menu", "View Menu")
@@ -37,4 +37,17 @@ public partial class App : Application
         {
         }
     }
+    
+//    protected override Window CreateWindow(IActivationState activationState) =>
+//       new Window(new AppShell())
+//       {
+//#if WINDOWS
+//           //.NET 7 adds support for Window size properties & events
+//           Width = 1200,
+//           Height = 800,
+//           X = 10,
+//           Y = 10
+//#endif
+//       };
+    
 }
