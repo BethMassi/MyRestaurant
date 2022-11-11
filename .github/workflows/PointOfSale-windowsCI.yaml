@@ -27,8 +27,8 @@ jobs:
         shell: pwsh
         run: |
           & dotnet nuget locals all --clear
-          & dotnet workload install maui --source https://aka.ms/dotnet7/nuget/index.json --source https://api.nuget.org/v3/index.json
-          & dotnet workload install android ios maccatalyst tvos macos maui wasm-tools maui-maccatalyst --source https://aka.ms/dotnet7/nuget/index.json --source https://api.nuget.org/v3/index.json
+          & dotnet workload install maui --source https://api.nuget.org/v3/index.json
+          & dotnet workload install android ios maccatalyst tvos macos maui wasm-tools maui-maccatalyst --source https://api.nuget.org/v3/index.json
       
       # https://docs.microsoft.com/en-us/dotnet/maui/windows/deployment/overview
       - name: Build Windows MSIX
@@ -92,8 +92,8 @@ jobs:
           shell: bash
           run: |
             dotnet nuget locals all --clear 
-            dotnet workload install maui --source https://aka.ms/dotnet7/nuget/index.json --source https://api.nuget.org/v3/index.json
-            dotnet workload install android ios maccatalyst tvos macos maui wasm-tools --source https://aka.ms/dotnet7/nuget/index.json --source https://api.nuget.org/v3/index.json
+            dotnet workload install maui --source https://api.nuget.org/v3/index.json
+            dotnet workload install android ios maccatalyst tvos macos maui wasm-tools --source https://api.nuget.org/v3/index.json
 
         - name: Restore nuget packages
           run: |
